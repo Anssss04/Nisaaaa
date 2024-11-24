@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Halaman Ucapan */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle, #1e1e2f, #121212);
+            color: #fff;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: #ff007f;
+            text-shadow: 0 0 20px #ff007f, 0 0 30px #ff33a6, 0 0 40px #ff66cc;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #ff007f, 0 0 20px #ff33a6, 0 0 30px #ff66cc;
+            }
+            to {
+                text-shadow: 0 0 20px #ff007f, 0 0 30px #ff33a6, 0 0 40px #ff66cc;
+            }
+        }
+
+        .message {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            animation: slideIn 2s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+            background: #ff007f;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background-color: #ff33a6;
+        }
+
+        /* 3D Confetti Animation */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            animation: confetti-fall linear infinite;
+        }
+
+        @keyframes confetti-fall {
+            from {
+                transform: rotateZ(0) translateY(-100vh);
+            }
+            to {
+                transform: rotateZ(360deg) translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Sugeng ambal Warsa فطرياخيرالنساء 🎂</h1>
+        <p class="message">selamat ulang tahun semoga hari ini dan seterusnya full senyum, dan juga semoga apa yang diimpikan bisa tercapai walaupun sulit banyak badai menghadang....TETAPP SEMANGATTT YAAA!!! ✨</p>
+        <button onclick="goBack()">🔙 Kembali</button>
+    </div>
+
+    <audio id="birthdaySong" autoplay loop >
+        <source src="Feast - Nina.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Tambahkan konfeti
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement("div");
+            confetti.classList.add("confetti");
+            confetti.style.left = Math.random() * 100 + "vw";
+            confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
+            confetti.style.backgroundColor = randomColor();
+            document.body.appendChild(confetti);
+        }
+
+        // Fungsi untuk warna acak
+        function randomColor() {
+            const colors = ['#ff007f', '#00d4ff', '#ffdd00', '#7fff00', '#ff3300', '#9933ff'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        // Fungsi kembali ke halaman utama
+        function goBack() {
+            window.location.href = "ulangtahun.html";
+        }
+    </script>
+</body>
+</html>
